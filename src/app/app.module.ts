@@ -17,14 +17,23 @@ import {
   MatButtonModule,
   MatGridListModule,
   MatMenuModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatTabsModule,
+  MatDividerModule,
+  MatListModule,
+  MatRadioModule,
+  MatTreeModule,
+  MatDialogModule
 } from '@angular/material';
 
 
 import { AppComponent } from './app.component';
 import { PizzaMainLayoutComponent } from './pizza-main-layout/pizza-main-layout.component';
 import { PizzaDetailComponent } from './pizza-detail/pizza-detail.component';
-import { PizzaHeaderComponent } from './pizza-header/pizza-header.component';
+import { PizzaHeaderComponent, DialogOverviewExampleDialog } from './pizza-header/pizza-header.component';
+
+
+
 
 
 @NgModule({
@@ -43,7 +52,12 @@ import { PizzaHeaderComponent } from './pizza-header/pizza-header.component';
     MatToolbarModule,
     BrowserAnimationsModule,
     HttpClientModule,
-
+    MatTabsModule,
+    MatDividerModule,
+    MatListModule,
+    MatRadioModule,
+    MatTreeModule,
+    MatDialogModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
@@ -55,8 +69,10 @@ import { PizzaHeaderComponent } from './pizza-header/pizza-header.component';
     AppComponent,
     PizzaMainLayoutComponent,
     PizzaDetailComponent,
-    PizzaHeaderComponent
+    PizzaHeaderComponent,
+    DialogOverviewExampleDialog
   ],
+  entryComponents: [DialogOverviewExampleDialog],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

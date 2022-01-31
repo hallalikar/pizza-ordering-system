@@ -1,6 +1,10 @@
-<mat-sidenav-container class="pizza-container">
-  
-  <!-- Side nav -->
+
+
+
+<mat-tab-group>
+  <mat-tab label="Pizzas">
+    <mat-sidenav-container class="pizza-container">
+      <!-- Side nav -->
   <mat-sidenav mode="side" class="pizza-sidenav" opened>
     <mat-button-toggle-group #group="matButtonToggleGroup" id="mtbt">
       <mat-button-toggle (click)="setToggleValue('v')" mat-raised-button id="Veg" value="v">Veg</mat-button-toggle>
@@ -28,28 +32,34 @@
       </mat-form-field>
     </form>
   </mat-sidenav>
-
-  <!-- Main content -->
+  
+      <!-- Main content -->
   <mat-sidenav-content>
-
-    <mat-card *ngFor="let pizza of pizzas$ | async" class="pizza-card">
-      <mat-card-header class="pizza-card-header">
-        <mat-card-title><h3>{{ pizza.name | uppercase }} </h3></mat-card-title>
-
-      </mat-card-header>
-      <mat-card-content>
-        <img width="150" src="{{pizza.image}}" alt="Photo of pizza">
-        <ul class="pizza-list">
-          <li>{{pizza.base}}</li>
-          <li>{{pizza.type}}</li>
-          <li>{{pizza.pizza}}</li>
-
-        </ul>
-      </mat-card-content>
-      <div class="pizza-card-bottom">Rs. {{pizza.price}} /-</div>
-      <mat-card-actions class="pizza-card-bottom">
-        <button routerLink="/detail/{{pizza.id}}" mat-raised-button>ADD</button>
-      </mat-card-actions>
-    </mat-card>
+    <mat-grid-list cols="3" rowHeight="500px">
+      <mat-grid-tile *ngFor="let pizza of pizzas$ | async">
+        <mat-card *ngIf="pizza">
+          <mat-card-header>
+            <mat-card-title><h3>{{ pizza.name | uppercase }} Details </h3></mat-card-title>
+            <mat-card-subtitle>{{pizza.pizza}}</mat-card-subtitle>
+          </mat-card-header>
+          <img src="{{pizza.image}}" alt="Photo of pizza" height="200px" width="200px">
+          <mat-card-content >
+            <ul>
+              <li>Base: {{pizza.base}}</li>
+              <li>Type {{pizza.type}}</li>
+              <li>Price: {{pizza.price}}</li>
+            </ul>
+          </mat-card-content>
+          <mat-card-actions class="pizza-back-btn">
+            <button (click)="goBack()" mat-raised-button>Add To Cart</button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
   </mat-sidenav-content>
-</mat-sidenav-container>
+    </mat-sidenav-container>
+  </mat-tab>
+  <mat-tab label="Sides">Sides</mat-tab>
+  <mat-tab label="Deserts">Deserts</mat-tab>
+  <mat-tab label="Drinks">Deserts</mat-tab>
+</mat-tab-group>

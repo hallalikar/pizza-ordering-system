@@ -47,3 +47,7 @@ mat-slider {
 .pizza-card-header {
   justify-content: center !important;
 }
+
+mat-grid-tile {
+  background: lightblue;
+}

@@ -1,12 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { MatSelectModule } from '@angular/material/select';
+
 import {
    debounceTime, distinctUntilChanged, switchMap
  } from 'rxjs/operators';
  
 import { Pizza }         from '../pizza';
 import { PizzaService }  from '../pizza.service';
+
+
 
 @Component({
   selector: 'app-pizza-main-layout',
@@ -38,6 +40,8 @@ export class PizzaMainLayoutComponent implements OnInit {
   ];
 
 
+
+
   constructor(private pizzaService: PizzaService) { }
 
   ngOnInit() : void {
@@ -67,8 +71,7 @@ export class PizzaMainLayoutComponent implements OnInit {
    
 /*Search pizza based on filters*/
    search() : void{
-
-    if(this.selectedBase === undefined )
+     if(this.selectedBase === undefined )
       this.selectedBase = '';
     if(this.selectedType === undefined )
       this.selectedType = '';

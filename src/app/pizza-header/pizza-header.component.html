@@ -1,26 +1,46 @@
-<mat-toolbar-row class="pizza-app-header">
-  <span>My Pizza</span>
-  <!-- Menu items -->
-  <span class="pizza-header-space">
- <button mat-button [matMenuTriggerFor]="file">File</button>
-<mat-menu #file="matMenu">
-  <button mat-menu-item>Item 1</button>
-  <button mat-menu-item>Item 2</button>
-</mat-menu>
- <button mat-button class="example-icon" [matMenuTriggerFor]="edit">Edit</button>
-<mat-menu #edit="matMenu">
-  <button mat-menu-item>Item 1</button>
-  <button mat-menu-item>Item 2</button>
-</mat-menu>
-<button mat-button class="example-icon" [matMenuTriggerFor]="view">View</button>
-<mat-menu #view="matMenu">
-  <button mat-menu-item>Item 1</button>
-  <button mat-menu-item>Item 2</button>
-</mat-menu>
-<button mat-button class="example-icon" [matMenuTriggerFor]="help">Help</button>
-<mat-menu #help="matMenu">
-  <button mat-menu-item>Item 1</button>
-  <button mat-menu-item>Item 2</button>
-</mat-menu>
-</span>
+
+  <mat-toolbar-row class="pizza-app-header">
+  <mat-grid-list cols="8" rowHeight="2:1" [style.background]="'lightblue'">
+    <mat-grid-tile [colspan]="1">
+          <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <span>Track Current Order</span>
+            </button>
+            <button mat-menu-item>
+              <span>Order Histrory</span>
+            </button>
+            <button mat-menu-item>
+              <span>Deals & offers</span>
+            </button>
+            <button mat-menu-item>
+              <span>Every Day Value Offers</span>
+            </button>
+          </mat-menu>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2" >
+        Demo Pizza Application
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile>
+
+      <button mat-button [matMenuTriggerFor]="menu1">  My Account | Login</button>
+      <mat-menu #menu1="matMenu">
+        <button mat-menu-item (click)="openDialog()">
+          <span>Login</span>
+        </button>
+        <button mat-menu-item>
+          <span>Create new user</span>
+        </button>
+     </mat-menu>
+    </mat-grid-tile>
+  </mat-grid-list>
+  
 </mat-toolbar-row>
+
+
+
+
